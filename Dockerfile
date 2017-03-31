@@ -17,3 +17,5 @@ RUN apk -q --no-cache add py-pip gcc musl-dev libjpeg-turbo-dev python-dev zlib-
 RUN apk -q --no-cache add git  # Git
 
 ENV LIBRARY_PATH /lib:/usr/lib:$LIBRARY_PATH  # Pillow
+
+RUN pip install cryptography==1.7.2 gevent==1.0  # Install dependencies that take a long time
