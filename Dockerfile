@@ -19,4 +19,6 @@ RUN apk -q --no-cache add nano htop  # Debugging
 
 ENV LIBRARY_PATH /lib:/usr/lib:$LIBRARY_PATH  # Pillow
 
-RUN pip install cryptography==1.7.2 gevent==1.0 M2Crypto==0.26.0  # Install dependencies that take a long time
+ADD requirements.txt .
+RUN pip install -r requirements.txt  # Install dependencies that take a long time
+RUN rm requirements.txt
