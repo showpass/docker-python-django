@@ -15,7 +15,7 @@ RUN apk -q --no-cache add libevent-dev  # Gevent
 RUN apk -q add --update curl curl-dev openssl  # Curl
 RUN apk -q --no-cache add py-pip gcc musl-dev libjpeg-turbo-dev python-dev zlib-dev libffi-dev build-base jpeg-dev freetype-dev # Pillow
 RUN apk -q --no-cache add git  # Git
-RUN apk -q --no-cache add nano htop  # Debugging
+RUN apk -q --no-cache add nano htop postgresql-client  # Debugging
 
 ENV LIBRARY_PATH /lib:/usr/lib:$LIBRARY_PATH  # Pillow
 
