@@ -7,3 +7,4 @@ numpy==1.13.3
 cffi==1.11.2
 Pillow==2.9.0
 Twisted[tls,http2]==17.9.0
+lxml==4.1.1
