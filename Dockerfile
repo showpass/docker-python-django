@@ -14,11 +14,12 @@ RUN apk -q --no-cache add py-gdal geos-dev geoip-dev gdal-dev # PostGIS
 RUN apk -q --no-cache add linux-headers  # psutil
 RUN apk -q --no-cache add bash  # bash
 RUN apk -q --no-cache add libevent-dev  # Gevent
-RUN apk -q add --update curl curl-dev openssl  # Curl
+RUN apk -q add --update curl curl-dev # Curl
 RUN apk -q --no-cache add py-pip gcc musl-dev libjpeg-turbo-dev python-dev zlib-dev libffi-dev build-base jpeg-dev freetype-dev # Pillow
 RUN apk -q --no-cache add git  # Git
 RUN apk -q --no-cache add nano htop postgresql-client  # Debugging
 RUN apk -q --no-cache add libxslt-dev libxml2-dev # lxml
+RUN apk -q --no-cache add py-m2crypto # move m2Crypto to here
 RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community librdkafka # kafka
 
 ENV LIBRARY_PATH /lib:/usr/lib:$LIBRARY_PATH  # Pillow
