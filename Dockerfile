@@ -19,6 +19,7 @@ RUN apk -q --no-cache add py-pip gcc musl-dev libjpeg-turbo-dev python-dev zlib-
 RUN apk -q --no-cache add git  # Git
 RUN apk -q --no-cache add nano htop postgresql-client  # Debugging
 RUN apk -q --no-cache add libxslt-dev libxml2-dev # lxml
+RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/main py-typing
 RUN apk -q --no-cache add py-m2crypto # move m2Crypto to here
 RUN apk -q --no-cache add py-amqp # move amqp to here
 RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community librdkafka # kafka
