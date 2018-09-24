@@ -18,7 +18,7 @@ RUN apk -q --no-cache add py-pip gcc musl-dev libjpeg-turbo-dev python-dev zlib-
 RUN apk -q --no-cache add git  # Git
 RUN apk -q --no-cache add nano htop postgresql-client  # Debugging
 RUN apk -q --no-cache add libxslt-dev libxml2-dev # lxml
-RUN apk -q --no-cache add librdkafka # kafka
+RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community librdkafka # kafka
 
 ENV LIBRARY_PATH /lib:/usr/lib:$LIBRARY_PATH  # Pillow
 
