@@ -7,7 +7,8 @@ RUN echo "http://dl-2.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
     echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories; \
     echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories;
 RUN apk -q update
-RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/main libressl2.7-libcrypto 
+RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/main libressl2.7-libcrypto
+RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/main libressl2.7-libssl
 RUN apk -q --no-cache add py-psycopg2 postgresql-dev # PostgreSQL
 RUN apk -q --no-cache add py-gdal geos-dev geoip-dev gdal-dev # PostGIS
 RUN apk -q --no-cache add linux-headers  # psutil
