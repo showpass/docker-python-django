@@ -19,6 +19,7 @@ RUN apk -q --no-cache add py-pip gcc musl-dev libjpeg-turbo-dev python-dev zlib-
 RUN apk -q --no-cache add git  # Git
 RUN apk -q --no-cache add nano htop postgresql-client  # Debugging
 RUN apk -q --no-cache add libxslt-dev libxml2-dev # lxml
+RUN pip install --upgrade pip cryptography --trusted-host pypi.org --trusted-host files.pythonhosted.org # update pip and cryptography so we can install deps
 
 ENV LIBRARY_PATH /lib:/usr/lib:$LIBRARY_PATH  # Pillow
 
