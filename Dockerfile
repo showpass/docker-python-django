@@ -7,22 +7,23 @@ RUN echo "http://dl-2.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
     echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories; \
     echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories;
 RUN apk -q update
-RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/main libressl2.7-libcrypto 
+RUN apk -q add --update curl curl-dev # Curl
+RUN apk -q --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main add openssl openssl-dev 
+#RUN apk -q --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/main libressl2.7-libcrypto 
 RUN apk -q --no-cache add py-psycopg2 postgresql-dev # PostgreSQL
 RUN apk -q --no-cache add py-gdal geos-dev geoip-dev gdal-dev # PostGIS
 RUN apk -q --no-cache add linux-headers  # psutil
 RUN apk -q --no-cache add bash  # bash
 RUN apk -q --no-cache add libevent-dev  # Gevent
-RUN apk -q add --update curl curl-dev openssl # Curl
-RUN apk -q --no-cache add openssl-dev
 RUN apk -q --no-cache add py-pip gcc musl-dev libjpeg-turbo-dev python-dev zlib-dev libffi-dev build-base jpeg-dev freetype-dev # Pillow
 RUN apk -q --no-cache add git  # Git
 RUN apk -q --no-cache add nano htop postgresql-client  # Debugging
 RUN apk -q --no-cache add libxslt-dev libxml2-dev # lxml
-RUN pip install --upgrade pip cryptography --trusted-host pypi.org --trusted-host files.pythonhosted.org # update pip and cryptography so we can install deps
+#RUN pip install --upgrade pip cryptography --trusted-host pypi.org --trusted-host files.pythonhosted.org # update pip and cryptography so we can install deps
 
 ENV LIBRARY_PATH /lib:/usr/lib:$LIBRARY_PATH  # Pillow
 
 ADD requirements.txt .
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt # Install dependencies that take a long time
 RUN rm requirements.txt
